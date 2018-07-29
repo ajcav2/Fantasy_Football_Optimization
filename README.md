@@ -1,4 +1,4 @@
-# Fantasy Football Lineup Optimization with Monte Carlo Simulation
+# Fantasy Football Lineup Optimization using Monte Carlo Simulation
 
 ## Alex Cavanaugh
 
