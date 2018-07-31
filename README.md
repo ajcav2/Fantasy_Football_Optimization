@@ -1,4 +1,4 @@
-# Fantasy Football Lineup Optimization using Monte Carlo Simulation
+# Fantasy Football Lineup Optimization with Monte Carlo Simulation
 
 ## Alex Cavanaugh
 
@@ -41,13 +41,15 @@ to
 
 `last_name, first_name = map(lambda s: s.strip(), name.split(',')[:2])`
 
+Now we're ready to run the `update_players.py` script which will pull an updated list of players from the 2017 season. Run `python update_players.py` and you should see some output indicating that the script is looking for players. It may take a while to download all the information. Also, you may get some errors while running this. When I ran the script, I ultimately had 75 players that the script could not gather information on. These players did not have enough information to be used in the simulation, so we can ignore these erros.
+
 
 Next, we need to update the game schedule. To do this, run `update_sched.py --year 2017`. (The `update_sched.py` file should be in the same location at the `update_players.py` file.)
 
 Finally, we should be ready to use the `lineup_optimizer.py` script in this program. When you run the script, the program will ask for any players that you would like to include on your team regardless of their MC score, and any players that should be excluded from your team (regardless of MC score). Next, the program will ask for the number of MC simulations to be performed. Finally, the program will perform the required simulations, and display the optimal roster to the user. A small number of simulations (<10) should run relatively quickly, however as the number of simulations grows, the time to execute grows significantly. 
 
 ### Live Drafting
-To use this program in a live draft, use the `live_draft.py` script. When running the script, the user will first be asked to enter the name of the file with all player information. If using the provided information file, the filename should be `100_sim_all_players`. Next, the user will continuously be asked to enter in the picks of the other members of their league. When it is the users turn to pick, they will be shown an optimal roster and should pick from that list for the best results (though it isn't necessary). Once the user has picked a full team, the program quits. It should also be mentioned that this program will not allow the user to pick an illegal team - so if a player is chosen and added to the roster, it is guaranteed that a legal roster can still be created. 
+To use this program in a live draft, use the `live_draft.py` script. This script does not require any additional installations from the user beyond pandas and tabulate. When running the script, the user will first be asked to enter the name of the file with all player information. If using the provided information file, the filename should be `100_sim_all_players`. Next, the user will continuously be asked to enter in the picks of the other members of their league. When it is the users turn to pick, they will be shown an optimal roster and should pick from that list for the best results (though it isn't necessary). Once the user has picked a full team, the program quits. It should also be mentioned that this program will not allow the user to pick an illegal team - so if a player is chosen and added to the roster, it is guaranteed that a legal roster can still be created. 
 
 ## All Sources Used:
 nflgame documentation: http://web.archive.org/web/20171205024904/http://pdoc.burntsushi.net:80/nflgame#nflgame.one
